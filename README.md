@@ -51,7 +51,7 @@ Exit from your cloud server. On your **local** (**not** cloud) Debian-based comp
 ```console
 nano ~/.ssh/config
 ```
-You now need to either add your `Host`, or amend your Host with `ForwardX11` and `ForwardX11Trusted`. I called my host (the cloud server) `puppeteer`. You can call it what you want. Substitute `123.456.78.900` with your cloud server's public IP address. `IdentityFile` is wherever your private key is located. I called my private key `puppeteer`. Change `myusername` to your own username, and change the path and `mypuppeteerkey` to whatever you named your key:
+You now need to either add your `Host`, or amend your Host with `ForwardX11` and `ForwardX11Trusted`. I called my host (the cloud server) `puppeteer`. You can call it what you want. Substitute `123.456.78.900` with your cloud server's public IP address. `IdentityFile` is wherever your private key is located. I called my private key `puppeteer`. Change `myusername` to your own username:
 
 *Note that when you are done with X11 forwarding and no longer need need to see a browser in your cloud server, disable `ForwardX11` and `ForwardX11Trusted` by putting hash tags in front of them.*
 ```console
