@@ -1,4 +1,4 @@
-# puppeteersigninheadless
+# Puppeteer Signin on a Headless Server
 Sign into services and save sessions with cookies using Puppeteer on a headless server.
 
 You will need a linux-based computer, such as Ubuntu, and a headless Debian-based cloud server of your choice (GCP, Digital Ocean, Oracle, etc). You will be enabling X11 forwarding so that you can see what you are doing. After sign in, you will be able to create scripts with the headless option enabled.
