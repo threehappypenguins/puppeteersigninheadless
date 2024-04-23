@@ -100,4 +100,4 @@ node signin-script.js
 
 You may need to wait for several seconds, depending on the processing speed of your server. A Chromium browser should pop up. You can the sign into whatever service(s) you need, and then close.
 
-Create a new script for whatever your purposes are, but make sure to include cookies in the script. See the section `// Set the cookies as extra HTTP headers` in example.js.
+Create a new script for whatever your purposes are, but make sure to include cookies in the script. See the section `// Set the cookies as extra HTTP headers` in `example.js`. I have also included a screenshot function where screenshot.png will appear after running `example.js` to show whether the signin worked.
