@@ -24,6 +24,6 @@ async function run () {
     await page.waitForTimeout(10000);
     const cookies = await page.cookies();
     const fs = require('fs');
-    fs.writeFileSync('${homeDirectory}/${nodeProject}/userdata/cookies.json', JSON.stringify(cookies));
+    fs.writeFileSync(`${homeDirectory}/${nodeProject}/userdata/cookies.json`, JSON.stringify(cookies));
 }
 run();
