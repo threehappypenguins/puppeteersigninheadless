@@ -90,7 +90,7 @@ cd puppeteersigninheadless
 npm init
 ```
 ```console
-npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
+npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth puppeteer-core
 ```
 
 Now you can run the script from the `puppeteersigninheadless` directory:
