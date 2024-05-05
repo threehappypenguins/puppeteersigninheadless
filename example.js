@@ -32,6 +32,7 @@ async function run () {
       args: ['--disable-blink-features=AutomationControlled'] // Disable automation features
     });
     var [page] = await browser.pages();
+    await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0");  //  Necessary to make stealth plugin work with certain platforms
 
     let googlepageSuccess = true; //initialize the success flag to true
       try {
