@@ -2,21 +2,34 @@
 // it augments the installed puppeteer with plugin functionality
 const puppeteer = require('puppeteer-extra')
 
-// add stealth plugin and use defaults (all evasion techniques)
-const StealthPlugin = require('puppeteer-extra-plugin-stealth')
-puppeteer.use(StealthPlugin())
+// Add stealth plugin and use defaults (all evasion techniques)
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+const stealth = StealthPlugin();
+stealth.enabledEvasions.delete('iframe.contentWindow');
+stealth.enabledEvasions.delete('media.codecs');
+puppeteer.use(stealth);
 
-// specify what the home directory is
+// To use Chromium
+const puppeteerCore = require('puppeteer-core')
+
+// Specify the Chromium executable path manually
+const chromeExecutablePath = '/usr/bin/chromium-browser'; // Replace with actual browser if needed
+async function findChromeExecutablePath() {}
+findChromeExecutablePath();
+
+// Specify the home directory
 const homeDirectory = process.env.HOME;
 
-//specify the node project directory name
+// Specify the node project directory name
 const nodeProject = "puppeteersigninheadless";
 
 // puppeteer usage as normal
 async function run () {
-    const browser = await puppeteer.launch({
+    const browser = await puppeteerCore.launch({
+      executablePath: chromeExecutablePath,
       headless: 'new',
-      userDataDir: '${homeDirectory}/${nodeProject}/userdata'
+      userDataDir: `${homeDirectory}/${nodeProject}/userdata`,
+      args: ['--disable-blink-features=AutomationControlled'] // Disable automation features
     });
     var [page] = await browser.pages();
 
@@ -24,7 +37,7 @@ async function run () {
       try {
       // Navigate to the first page
       await page.goto('https://myaccount.google.com/');
-      await page.waitForTimeout(5000);
+      await new Promise(resolve => setTimeout(resolve, 5000))
     } catch (e) {
       googlepageSuccess = false; //set success flag to false if an error occurs
       console.log(e); //log the error message to the console
